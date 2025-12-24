@@ -1,5 +1,3 @@
-# noel-gift[giangsinh.html](https://github.com/user-attachments/files/24322609/giangsinh.html)
-<!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
