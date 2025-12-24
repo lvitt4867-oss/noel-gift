@@ -1,1 +1,698 @@
-# noel-gift
+# noel-gift[giangsinh.html](https://github.com/user-attachments/files/24322609/giangsinh.html)
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merry Christmas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            overflow: hidden;
+            background: linear-gradient(135deg, #8B0000, #DC143C, #B22222, #8B0000);
+            font-family: 'Noto Serif', serif;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, transparent 0%, rgba(139, 0, 0, 0.4) 100%);
+            pointer-events: none;
+        }
+
+        .fog {
+            position: absolute;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.1) 25%, 
+                rgba(255, 255, 255, 0.2) 50%, 
+                rgba(255, 255, 255, 0.1) 75%, 
+                transparent 100%);
+            animation: fogMove 20s linear infinite;
+            pointer-events: none;
+        }
+
+        .fog:nth-child(2) {
+            animation-duration: 25s;
+            animation-delay: -5s;
+            opacity: 0.6;
+        }
+
+        .fog:nth-child(3) {
+            animation-duration: 30s;
+            animation-delay: -10s;
+            opacity: 0.4;
+        }
+
+        @keyframes fogMove {
+            0% {
+                transform: translateX(-50%);
+            }
+            100% {
+                transform: translateX(0%);
+            }
+        }
+
+        .welcome-screen {
+            text-align: center;
+            z-index: 100;
+            padding: 60px 50px;
+            background: rgba(139, 0, 0, 0.4);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        .welcome-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 4em;
+            color: #fff;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 1),
+                         0 0 50px rgba(255, 215, 0, 0.8);
+            margin-bottom: 30px;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        .start-button {
+            margin-top: 30px;
+            padding: 20px 50px;
+            font-size: 1.5em;
+            background: linear-gradient(135deg, #fff, #ffcccb);
+            color: #8B0000;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            font-family: 'Noto Serif', serif;
+            font-weight: 700;
+        }
+
+        .start-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(255, 255, 255, 0.5);
+        }
+
+        .container {
+            text-align: center;
+            z-index: 10;
+            padding: 50px 40px;
+            background: rgba(139, 0, 0, 0.3);
+            backdrop-filter: blur(15px);
+            border-radius: 30px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6),
+                        inset 0 0 50px rgba(255, 255, 255, 0.1);
+            max-width: 900px;
+            animation: fadeIn 2s ease-in;
+            display: none;
+        }
+
+        .container.show {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5em;
+            color: #fff;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 1),
+                         0 0 50px rgba(255, 215, 0, 0.8),
+                         0 0 70px rgba(255, 100, 100, 0.6);
+            margin-bottom: 40px;
+            animation: glow 2s ease-in-out infinite;
+            font-weight: 700;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                text-shadow: 0 0 30px rgba(255, 215, 0, 1),
+                             0 0 50px rgba(255, 215, 0, 0.8),
+                             0 0 70px rgba(255, 100, 100, 0.6);
+            }
+            50% {
+                text-shadow: 0 0 40px rgba(255, 215, 0, 1),
+                             0 0 70px rgba(255, 215, 0, 1),
+                             0 0 90px rgba(255, 100, 100, 0.8);
+            }
+        }
+
+        .message {
+            font-size: 1.35em;
+            color: #fff;
+            line-height: 2;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9),
+                         0 0 20px rgba(255, 255, 255, 0.3);
+            margin-top: 20px;
+            animation: slideUp 1.5s ease-out 0.5s both;
+            font-weight: 400;
+        }
+
+        .message p {
+            margin: 8px 0;
+        }
+
+        .message br {
+            display: block;
+            content: "";
+            margin-top: 15px;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .heart {
+            color: #ffb3ba;
+            font-size: 1.3em;
+            display: inline-block;
+            animation: heartbeat 1.5s ease-in-out infinite;
+            margin-left: 5px;
+            filter: drop-shadow(0 0 10px rgba(255, 100, 100, 0.8));
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            25% {
+                transform: scale(1.2);
+            }
+            50% {
+                transform: scale(1);
+            }
+        }
+
+        .mic-button {
+            margin-top: 30px;
+            padding: 15px 40px;
+            font-size: 1.2em;
+            background: linear-gradient(135deg, #fff, #ffcccb);
+            color: #8B0000;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            font-family: 'Noto Serif', serif;
+            font-weight: 700;
+        }
+
+        .mic-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 255, 255, 0.5);
+            background: linear-gradient(135deg, #ffcccb, #fff);
+        }
+
+        .mic-button.listening {
+            background: linear-gradient(135deg, #ffeb3b, #ffc107);
+            color: #8B0000;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 10px 30px rgba(255, 235, 59, 0.5);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 15px 40px rgba(255, 235, 59, 0.7);
+            }
+        }
+
+        .falling-item {
+            position: absolute;
+            font-size: 2em;
+            animation: fall linear;
+            cursor: pointer;
+            z-index: 50;
+            transition: transform 0.2s;
+        }
+
+        .falling-item:hover {
+            transform: scale(1.3);
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0.8;
+            }
+        }
+
+        .mist {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+            animation: mistFloat linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes mistFloat {
+            0% {
+                transform: translateY(100vh) translateX(0) scale(0.5);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(-20vh) translateX(100px) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        .santa {
+            position: absolute;
+            bottom: 40px;
+            right: 50px;
+            font-size: 5em;
+            animation: santaBounce 2s ease-in-out infinite;
+            filter: drop-shadow(0 10px 30px rgba(255, 255, 255, 0.4));
+        }
+
+        @keyframes santaBounce {
+            0%, 100% {
+                transform: translateY(0) rotate(-5deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+        }
+
+        .tree {
+            position: absolute;
+            bottom: 30px;
+            left: 50px;
+            width: 0;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 80px solid #0d4d0d;
+            animation: treeGrow 2s ease-out;
+            filter: drop-shadow(0 5px 20px rgba(0, 0, 0, 0.5));
+        }
+
+        .tree::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            left: -35px;
+            width: 0;
+            height: 0;
+            border-left: 35px solid transparent;
+            border-right: 35px solid transparent;
+            border-bottom: 60px solid #1a5c1a;
+        }
+
+        .tree::after {
+            content: '';
+            position: absolute;
+            top: -110px;
+            left: -25px;
+            width: 0;
+            height: 0;
+            border-left: 25px solid transparent;
+            border-right: 25px solid transparent;
+            border-bottom: 50px solid #267326;
+        }
+
+        @keyframes treeGrow {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .star {
+            position: absolute;
+            bottom: 140px;
+            left: 50px;
+            color: gold;
+            font-size: 2em;
+            animation: starTwinkle 1.5s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px gold);
+        }
+
+        @keyframes starTwinkle {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.5;
+                transform: scale(1.3);
+            }
+        }
+
+        .lights {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            display: flex;
+            justify-content: space-around;
+            z-index: 5;
+        }
+
+        .light {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            animation: lightBlink 1s ease-in-out infinite;
+        }
+
+        .light:nth-child(1) { background: #fff; animation-delay: 0s; }
+        .light:nth-child(2) { background: #ffd700; animation-delay: 0.2s; }
+        .light:nth-child(3) { background: #fff; animation-delay: 0.4s; }
+        .light:nth-child(4) { background: #ffd700; animation-delay: 0.6s; }
+        .light:nth-child(5) { background: #fff; animation-delay: 0.8s; }
+
+        @keyframes lightBlink {
+            0%, 100% {
+                opacity: 1;
+                box-shadow: 0 0 30px currentColor;
+            }
+            50% {
+                opacity: 0.3;
+            }
+        }
+
+        .status {
+            margin-top: 15px;
+            font-size: 1em;
+            color: #fff;
+            opacity: 0.9;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+                max-width: 90%;
+            }
+            h1 {
+                font-size: 2.5em;
+            }
+            .message {
+                font-size: 1.1em;
+            }
+            .santa {
+                font-size: 3em;
+                right: 20px;
+                bottom: 20px;
+            }
+            .welcome-title {
+                font-size: 2.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="fog"></div>
+    <div class="fog"></div>
+    <div class="fog"></div>
+
+    <div class="lights">
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+    </div>
+
+    <div class="tree"></div>
+    <div class="star">★</div>
+    <div class="santa">🎅</div>
+
+    <div class="welcome-screen" id="welcomeScreen">
+        <h1 class="welcome-title">🎄 Merry Christmas PC 🎄</h1>
+        <button class="start-button" id="startButton">
+            🎁 BẤM VÀO ĐÂY 🎁
+        </button>
+    </div>
+
+    <div class="container" id="mainContainer">
+        <h1>🎄 Merry Christmas PC 🎄</h1>
+        <div class="message">
+            <p>Giáng sinh đầu tiên của chúng ta ở bên nhau,</p>
+            <p>Chị mong những điều tốt đẹp nhất hạnh phúc nhất</p>
+            <p>đến với cả hai ta <span class="heart">♥</span></p>
+            <p>Và mong rằng hai chúng ta không chỉ đón giáng sinh</p>
+            <p>cùng nhau vào năm nay mà sẽ là tất cả các dịp lễ khác</p>
+            <p>trong nhiều năm sắp tới. <span class="heart">♥</span></p>
+        </div>
+
+    <script>
+        const welcomeScreen = document.getElementById('welcomeScreen');
+        const mainContainer = document.getElementById('mainContainer');
+        const startButton = document.getElementById('startButton');
+        let itemsClicked = 0;
+        const totalItems = 5;
+
+        // Create background music
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        let bgMusic = null;
+        
+        function playBackgroundMusic() {
+            if (bgMusic) return;
+            
+            bgMusic = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            
+            bgMusic.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            
+            bgMusic.frequency.value = 523.25; // C5
+            gainNode.gain.value = 0.1;
+            
+            bgMusic.start();
+            
+            // Romantic melody pattern
+            const melody = [
+                {freq: 523.25, time: 0},    // C
+                {freq: 587.33, time: 0.5},  // D
+                {freq: 659.25, time: 1},    // E
+                {freq: 698.46, time: 1.5},  // F
+                {freq: 783.99, time: 2},    // G
+                {freq: 698.46, time: 2.5},  // F
+                {freq: 659.25, time: 3},    // E
+                {freq: 587.33, time: 3.5},  // D
+                {freq: 523.25, time: 4},    // C
+            ];
+            
+            let index = 0;
+            setInterval(() => {
+                bgMusic.frequency.value = melody[index].freq;
+                index = (index + 1) % melody.length;
+            }, 500);
+        }
+        
+        function playClickSound() {
+            const osc = audioContext.createOscillator();
+            const gain = audioContext.createGain();
+            
+            osc.connect(gain);
+            gain.connect(audioContext.destination);
+            
+            osc.frequency.value = 1000;
+            gain.gain.value = 0.2;
+            
+            osc.start();
+            gain.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
+            osc.stop(audioContext.currentTime + 0.1);
+        }
+        
+        function playSuccessSound() {
+            const frequencies = [523.25, 659.25, 783.99, 1046.50];
+            frequencies.forEach((freq, i) => {
+                setTimeout(() => {
+                    const osc = audioContext.createOscillator();
+                    const gain = audioContext.createGain();
+                    
+                    osc.connect(gain);
+                    gain.connect(audioContext.destination);
+                    
+                    osc.frequency.value = freq;
+                    gain.gain.value = 0.15;
+                    
+                    osc.start();
+                    gain.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
+                    osc.stop(audioContext.currentTime + 0.3);
+                }, i * 100);
+            });
+        }
+
+        // Start button
+        startButton.addEventListener('click', () => {
+            welcomeScreen.style.display = 'none';
+            playBackgroundMusic();
+            startFallingItems();
+        });
+
+        // Create falling items
+        function createFallingItem() {
+            const item = document.createElement('div');
+            item.classList.add('falling-item');
+            
+            const items = ['🎁', '❤️', '💝', '🎀', '💖'];
+            item.innerHTML = items[Math.floor(Math.random() * items.length)];
+            
+            item.style.left = Math.random() * (window.innerWidth - 50) + 'px';
+            item.style.animationDuration = Math.random() * 3 + 4 + 's';
+            
+            item.addEventListener('click', () => {
+                playClickSound();
+                item.style.animation = 'none';
+                item.style.transform = 'scale(2)';
+                item.style.opacity = '0';
+                setTimeout(() => item.remove(), 300);
+                
+                itemsClicked++;
+                if (itemsClicked >= totalItems) {
+                    playSuccessSound();
+                    setTimeout(showMessage, 500);
+                }
+            });
+            
+            document.body.appendChild(item);
+            
+            setTimeout(() => {
+                if (item.parentElement) {
+                    item.remove();
+                }
+            }, 7000);
+        }
+
+        function startFallingItems() {
+            const interval = setInterval(() => {
+                createFallingItem();
+                if (itemsClicked >= totalItems) {
+                    clearInterval(interval);
+                }
+            }, 800);
+        }
+
+        function showMessage() {
+            mainContainer.classList.add('show');
+        }
+
+        // Create mist particles
+        function createMist() {
+            const mist = document.createElement('div');
+            mist.classList.add('mist');
+            const size = Math.random() * 300 + 100;
+            mist.style.width = size + 'px';
+            mist.style.height = size + 'px';
+            mist.style.left = Math.random() * window.innerWidth + 'px';
+            mist.style.animationDuration = Math.random() * 10 + 15 + 's';
+            mist.style.animationDelay = Math.random() * 5 + 's';
+            document.body.appendChild(mist);
+
+            setTimeout(() => {
+                mist.remove();
+            }, 25000);
+        }
+
+        setInterval(createMist, 2000);
+
+        for (let i = 0; i < 10; i++) {
+            setTimeout(createMist, i * 500);
+        }
+
+        // Text to Speech
+        const micButton = document.getElementById('micButton');
+        const statusDiv = document.getElementById('status');
+        let isReading = false;
+
+        const message = `Merry Christmas PC! 
+        Giáng sinh đầu tiên của chúng ta ở bên nhau, 
+        Chị mong những điều tốt đẹp nhất hạnh phúc nhất đến với cả hai ta. 
+        Và mong rằng hai chúng ta không chỉ đón giáng sinh cùng nhau vào năm nay 
+        mà sẽ là tất cả các dịp lễ khác trong nhiều năm sắp tới.`;
+
+        micButton.addEventListener('click', () => {
+            if (isReading) {
+                window.speechSynthesis.cancel();
+                micButton.textContent = '🎤 Nhấn để đọc lời nhắn';
+                micButton.classList.remove('listening');
+                statusDiv.textContent = '';
+                isReading = false;
+            } else {
+                if ('speechSynthesis' in window) {
+                    const utterance = new SpeechSynthesisUtterance(message);
+                    utterance.lang = 'vi-VN';
+                    utterance.rate = 0.9;
+                    utterance.pitch = 1;
+                    
+                    utterance.onstart = () => {
+                        micButton.textContent = '⏸️ Dừng đọc';
+                        micButton.classList.add('listening');
+                        statusDiv.textContent = 'Đang đọc lời nhắn...';
+                        isReading = true;
+                    };
+                    
+                    utterance.onend = () => {
+                        micButton.textContent = '🎤 Nhấn để đọc lời nhắn';
+                        micButton.classList.remove('listening');
+                        statusDiv.textContent = '';
+                        isReading = false;
+                    };
+                    
+                    window.speechSynthesis.speak(utterance);
+                } else {
+                    statusDiv.textContent = 'Trình duyệt không hỗ trợ đọc văn bản';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
